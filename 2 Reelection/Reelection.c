@@ -1,7 +1,7 @@
 #include "Reelection.h"
 
 int backtrack(Reelection r) {
-    // 1. Success condition: we have picked M numbers
+    // Success
     if (r.count == r.m) {
         if (r.current_sum == r.s) {
             printf("Found: ");
@@ -18,20 +18,19 @@ int backtrack(Reelection r) {
         return 0;
     }
 
-    // 2. Failure condition: sum exceeded or no more numbers to pick
+    // Failure
     if (r.current_sum > r.s || r.index >= r.n) {
         return 0;
     }
 
-    // 3. Recursive step: try adding numbers one by one
+    // Try adding numbers one by one
     for (int i = r.index; i < r.n; ++i) {
-        // Create the next state based on the current one
         Reelection next = r; 
         
-        next.path[next.count] = r.num[i]; // Pick the number
-        next.index = i + 1;               // Move to the next index for the next call
-        next.count = r.count + 1;         // Increment picked count
-        next.current_sum = r.current_sum + r.num[i]; // Update sum
+        next.path[next.count] = r.num[i]; 
+        next.index = i + 1;               
+        next.count = r.count + 1;        
+        next.current_sum = r.current_sum + r.num[i]; 
 
         // 1 in return means stop for FIRST_MATCH mode
         if (backtrack(next)) {

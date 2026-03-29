@@ -33,7 +33,7 @@ int main(int argc, char* argv[]) {
                 fprintf(stderr, "Unknown mode: %s\n", argv[i+1]);
                 return 1;
             }
-            i++;
+            ++i;
         } else if (strcmp(argv[i], "-timeout") == 0 && i + 1 < argc) {
             r.timeout_ms = atoi(argv[++i]);
         } else {    
@@ -57,6 +57,8 @@ int main(int argc, char* argv[]) {
     backtrack(r);
 
     printf("Search finished.\n");
+
+    
 
     // Clean up memory
     free(r.num);
