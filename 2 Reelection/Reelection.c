@@ -47,20 +47,20 @@ int backtrack(Reelection* r) {
     int start_from = r->index;
 
     for (int i = start_from; i < r->n; ++i) {
-        // --- Step Forward ---
         r->path[r->count] = r->num[i];
         r->current_sum += r->num[i];
         r->count++;
-        r->index = i + 1; // Tell the CHILD to start from the next element
+        r->index = i + 1; // Start from the next element
 
-        if (backtrack(r)) return 1; // Catch stop signal
+        if (backtrack(r)) {
+            return 1; // Catch stop signal
+        }
 
-        // --- Step Backward (Undo) ---
+        // Step Back
         r->count--;
         r->current_sum -= r->num[i];
-        // r->index = start_from; // Technically we reset it for the next iteration
     }
-    // IMPORTANT: Reset index for the PARENT caller
+    // Reset index
     r->index = start_from; 
 
     return 0;
