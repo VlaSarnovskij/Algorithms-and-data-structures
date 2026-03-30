@@ -10,8 +10,8 @@ typedef enum {
 } Mode;
 
 typedef struct {
-    int* num;
     int n, m, s;
+    int* num;        
 
     int* path;       // Selected numbers in the current path
     int index;       // Start index
@@ -22,6 +22,7 @@ typedef struct {
     int timeout_ms;  // Timeout in milliseconds
 } Reelection;
 
+void data_to_string(Reelection r);
 int backtrack(Reelection r); // Returns 1 if we should stop searching
-
+void statistics_to_string(Reelection r);
 #endif

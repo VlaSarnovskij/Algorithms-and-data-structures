@@ -1,5 +1,14 @@
 #include "Reelection.h"
 
+void data_to_string(Reelection r){
+    printf("N: %d, M: %d, S: %d\n", r.n, r.m, r.s);
+    printf("Numbers: ");
+    for (int i = 0; i < r.n; ++i) {
+        printf("%d ", r.num[i]);
+    }
+    printf("\n");
+}
+
 int backtrack(Reelection r) {
     // Success
     if (r.count == r.m) {
@@ -32,11 +41,15 @@ int backtrack(Reelection r) {
         next.count = r.count + 1;        
         next.current_sum = r.current_sum + r.num[i]; 
 
-        // 1 in return means stop for FIRST_MATCH mode
+        // 1 in return means stop
         if (backtrack(next)) {
             return 1; 
         }
     }
 
     return 0;
+}
+
+void statistics_to_string(Reelection r){
+
 }

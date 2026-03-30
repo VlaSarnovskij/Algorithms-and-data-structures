@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
             } else if (strcmp(argv[i+1], "firstMatchSearch") == 0) {
                 r.mode = FIRST_MATCH;
             } else if(strcmp(argv[i+1], "heuristic") == 0) {
-                printf("euristika dar nerealizuota\n");
+                printf("Heuristic mode is not implemented yet.\n");
                 return 1;
             } else {
                 fprintf(stderr, "Unknown mode: %s\n", argv[i+1]);
@@ -41,24 +41,34 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    // Example setup (Test Case 1: N=4, M=2, S=5)
-    // In the final version, you would read these values from a file
-    r.n = 4;
-    r.m = 2;
-    r.s = 5;
+    FILE *f;
+    f = fopen(input_file, "r");
+    if (!f) {
+        fprintf(stderr, "Error: failed to open file %s\n", input_file);
+        return 1;
+    }
+    if (fscanf(f, "%d %d %d", &r.n, &r.m, &r.s) != 3) {
+        fprintf(stderr, "Error: failed to read N, M and S values.\n");
+        if (f != stdin) fclose(f);
+        return 1;
+    }
     
     r.num = malloc(r.n * sizeof(int));
     for (int i = 0; i < r.n; ++i) {
-        r.num[i] = i + 1; // Fills {1, 2, 3, 4}
+        if (fscanf(f, "%d", &r.num[i]) != 1) {
+            fprintf(stderr, "Error: failed to read number %d.\n", i + 1);
+            if (f != stdin) {
+                fclose(f);
+            }
+            return 1;
+        }
     }
 
     r.path = malloc(r.m * sizeof(int));
-
-    backtrack(r);
-
-    printf("Search finished.\n");
-
     
+    data_to_string(r);
+    backtrack(r);
+    statistics_to_string(r);
 
     // Clean up memory
     free(r.num);

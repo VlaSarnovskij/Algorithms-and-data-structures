@@ -12,5 +12,8 @@ mingw32-make.exe
 echo 4 2 5 > test1.txt
 echo 1 2 3 4 >> test1.txt
 echo PIRMAS TESTAS  
-Prog.exe test1.txt > result1.txt
+program.exe test1.txt
+program.exe test1.txt > result1.txt
+
+
 mingw32-make.exe clean
