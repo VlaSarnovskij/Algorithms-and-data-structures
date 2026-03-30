@@ -66,9 +66,9 @@ int main(int argc, char* argv[]) {
 
     r.path = malloc(r.m * sizeof(int));
     
-    data_to_string(r);
-    backtrack(r);
-    statistics_to_string(r);
+    data_to_string(&r);
+    backtrack(&r);
+    statistics_to_string(&r);
 
     // Clean up memory
     free(r.num);
