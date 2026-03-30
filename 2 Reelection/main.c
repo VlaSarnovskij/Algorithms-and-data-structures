@@ -17,14 +17,17 @@ int main(int argc, char* argv[]) {
     r.index = 0;
     r.count = 0;
     r.current_sum = 0;
+    r.checked_combinations = 0;
     r.timeout_ms = -1; // -1 indicates no timeout
 
     r.mode = FULL_SEARCH; // Default mode
-    
+
     // Basic argument parsing for the mode
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "-mode") == 0 && i + 1 < argc) {
-            if (strcmp(argv[i+1], "firstMatchSearch") == 0) {
+            if (strcmp(argv[i+1], "fullSearch") == 0) {
+                r.mode = FULL_SEARCH;
+            } else if (strcmp(argv[i+1], "firstMatchSearch") == 0) {
                 r.mode = FIRST_MATCH;
             } else if(strcmp(argv[i+1], "heuristic") == 0) {
                 printf("Heuristic mode is not implemented yet.\n");
@@ -65,6 +68,7 @@ int main(int argc, char* argv[]) {
     }
 
     r.path = malloc(r.m * sizeof(int));
+    r.start_clock = clock(); // Start the timer for timeout tracking
     
     data_to_string(&r);
     backtrack(&r);

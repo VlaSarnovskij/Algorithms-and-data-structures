@@ -11,8 +11,19 @@ void data_to_string(Reelection* r){
 }
 
 int backtrack(Reelection* r) {
+    // Check for timeout
+    if (r->timeout_ms != -1) {
+        double elapsed = (double)(clock() - r->start_clock) / CLOCKS_PER_SEC * 1000.0;
+        if (elapsed >= r->timeout_ms) {
+            printf("Timeout reached!\n");
+            return 1; // Stop signal
+        }
+    }
+
     // Success
     if (r->count == r->m) {
+        r->checked_combinations++;
+
         if (r->current_sum == r->s) {
             printf("Combination found: ");
             for (int i = 0; i < r->m; ++i) {
@@ -33,30 +44,50 @@ int backtrack(Reelection* r) {
         return 0;
     }
 
-    // Try adding numbers one by one
-    for (int i = r->index; i < r->n; ++i) {
-        Reelection next = *r; 
-        
-        next.path[next.count] = r->num[i]; 
-        next.index = i + 1;               
-        next.count = r->count + 1;        
-        next.current_sum = r->current_sum + r->num[i]; 
+    int start_from = r->index;
 
-        // 1 in return means stop
-        if (backtrack(&next)) {
-            return 1; 
-        }
+    for (int i = start_from; i < r->n; ++i) {
+        // --- Step Forward ---
+        r->path[r->count] = r->num[i];
+        r->current_sum += r->num[i];
+        r->count++;
+        r->index = i + 1; // Tell the CHILD to start from the next element
+
+        if (backtrack(r)) return 1; // Catch stop signal
+
+        // --- Step Backward (Undo) ---
+        r->count--;
+        r->current_sum -= r->num[i];
+        // r->index = start_from; // Technically we reset it for the next iteration
     }
+    // IMPORTANT: Reset index for the PARENT caller
+    r->index = start_from; 
 
     return 0;
 }
 
-void find_combinations(Reelection* r) {
-    
-    
+void find_total_combinations(Reelection* r) {
+    if (r->m < 0 || r->m > r->n) {
+        r->total_combinations = 0;
+        return;
+    }
+    if (r->m == 0 || r->m == r->n) {
+        r->total_combinations = 1;
+        return;
+    }
+
+    if (r->m > r->n/2) r->m = r->n - r->m;
+
+    long long total_comb = 1;
+    for (int i = 1 ; i <= r->m ; i++) {
+        total_comb = total_comb * (r->n - i + 1) / i;
+    }
+    r->total_combinations = total_comb;
 }
 
 void statistics_to_string(Reelection* r){
+    find_total_combinations(r);
+
     printf("\n===== Statistics =====\n");
     printf("Total combinations to check: %lld\n", r->total_combinations);
     printf("Combinations checked: %lld\n", r->checked_combinations);
