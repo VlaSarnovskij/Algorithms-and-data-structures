@@ -43,7 +43,7 @@ int backtrack(Reelection* r) {
         next.current_sum = r->current_sum + r->num[i]; 
 
         // 1 in return means stop
-        if (backtrack(next)) {
+        if (backtrack(&next)) {
             return 1; 
         }
     }
@@ -57,7 +57,7 @@ void find_combinations(Reelection* r) {
 }
 
 void statistics_to_string(Reelection* r){
-    printf("===== Statistics =====\n");
+    printf("\n===== Statistics =====\n");
     printf("Total combinations to check: %lld\n", r->total_combinations);
     printf("Combinations checked: %lld\n", r->checked_combinations);
     printf("Progress: %.2f%%\n", r->total_combinations > 0 ? (double)r->checked_combinations / r->total_combinations * 100 : 0);

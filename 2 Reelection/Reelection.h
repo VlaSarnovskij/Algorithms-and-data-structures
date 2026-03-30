@@ -20,12 +20,12 @@ typedef struct {
 
     Mode mode;
     int timeout_ms;  // Timeout in milliseconds
-    
+
     long long total_combinations; // Total combinations to check
     long long checked_combinations; // Combinations checked so far
 } Reelection;
 
-void data_to_string(Reelection r);
-int backtrack(Reelection r); // Returns 1 if we should stop searching
-void statistics_to_string(Reelection r);
+void data_to_string(Reelection* r);
+int backtrack(Reelection* r); // Returns 1 if we should stop searching
+void statistics_to_string(Reelection* r);
 #endif
