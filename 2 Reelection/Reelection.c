@@ -1,19 +1,20 @@
 #include "Reelection.h"
 
 void data_to_string(Reelection r){
+    printf("===== Initial Data =====\n");
     printf("N: %d, M: %d, S: %d\n", r.n, r.m, r.s);
     printf("Numbers: ");
     for (int i = 0; i < r.n; ++i) {
         printf("%d ", r.num[i]);
     }
-    printf("\n");
+    printf("\n\n");
 }
 
 int backtrack(Reelection r) {
     // Success
     if (r.count == r.m) {
         if (r.current_sum == r.s) {
-            printf("Found: ");
+            printf("Combination found: ");
             for (int i = 0; i < r.m; ++i) {
                 printf("%d ", r.path[i]);
             }
@@ -51,5 +52,5 @@ int backtrack(Reelection r) {
 }
 
 void statistics_to_string(Reelection r){
-
+    
 }
