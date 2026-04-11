@@ -1,0 +1,3 @@
+KaskoSim - Simuliatorius automobiliu draudimo apskaiciavimui
+Filename: KaskoSim.cfg
+Simuliacija paleista su parametrais: A=500, A1=150, U=30, K=3, T1=10, T2=40
