@@ -1,3 +1,21 @@
 KaskoSim - Simuliatorius automobiliu draudimo apskaiciavimui
-Filename: params.txt
-Simuliacija paleista su parametrais: A=300, A1=100, U=25, K=2, T1=20, T2=50
+Inicijuojama reikšmė (seed): 50
+Procesas 1 (su VIP): 
+----------------------------------------------
+Aptarnautų automobilių: 111 (iš jų VIP: 50, įprastų: 61)
+Pajamos iš premijų (A1): 5000
+Išlaidos pagrindiniam atlyginimui: 11800
+Išlaidos viršvalandžiams (x2): 8550
+----------------------------------------------
+Galutinis pelnas: -3550
+
+Procesas 2 (be VIP): 
+----------------------------------------------
+Aptarnautų automobilių: 85 (iš jų VIP: 0, įprastų: 85)
+Pajamos iš premijų (A1): 0
+Išlaidos pagrindiniam atlyginimui: 11800
+Išlaidos viršvalandžiams (x2): 0
+----------------------------------------------
+Galutinis pelnas: 0
+
+Diff: -3550

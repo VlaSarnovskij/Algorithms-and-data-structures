@@ -1,3 +1,21 @@
 KaskoSim - Simuliatorius automobiliu draudimo apskaiciavimui
-Filename: KaskoSim.cfg
-Simuliacija paleista su parametrais: A=500, A1=150, U=30, K=3, T1=10, T2=40
+Inicijuojama reikšmė (seed): 1776011974
+Procesas 1 (su VIP): 
+----------------------------------------------
+Aptarnautų automobilių: 99 (iš jų VIP: 26, įprastų: 73)
+Pajamos iš premijų (A1): 3900
+Išlaidos pagrindiniam atlyginimui: 20640
+Išlaidos viršvalandžiams (x2): 7380
+----------------------------------------------
+Galutinis pelnas: -3480
+
+Procesas 2 (be VIP): 
+----------------------------------------------
+Aptarnautų automobilių: 89 (iš jų VIP: 0, įprastų: 89)
+Pajamos iš premijų (A1): 0
+Išlaidos pagrindiniam atlyginimui: 20790
+Išlaidos viršvalandžiams (x2): 0
+----------------------------------------------
+Galutinis pelnas: 0
+
+Diff: -3480

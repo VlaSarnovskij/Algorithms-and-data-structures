@@ -1,3 +1,4 @@
+30  days 
 300  A (Franchise) 
 100  A1 (Bonus) 
 25   U (Wage) 
