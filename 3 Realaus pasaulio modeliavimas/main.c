@@ -1,13 +1,13 @@
 #include <stdio.h>
-#include <string.h>
 #include <time.h>    
 #include <stdlib.h>
 #include "simulation.h" 
 #include "priorityQueue.h" // 1lugu2023
 #include "BigInteger.h" // 1masi2289
 
+
 int main(int argc, char* argv[]) {
-    printf("KaskoSim - Simuliatorius automobiliu draudimo apskaiciavimui\n");
+    printf("KaskoSim - Simuliatorius automobiliu draudimo apskaiciavimui\n\n");
 
     int seed = (int)time(NULL);
     char filename[256] = "";    
@@ -49,7 +49,24 @@ int main(int argc, char* argv[]) {
     printf("Procesas 2 (be VIP): \n");
     printSimulationResult(&withoutVip);
 
-    printf("Diff: %ld\n", withVip.total_profit - withoutVip.total_profit);
+    int cmp = compareADTs(withVip.total_profit, withoutVip.total_profit);
+    if (cmp < 0) {
+        printf("Išvada: VIP sutartys yra pelningesnės.\n");
+    } else if (cmp > 0) {
+        printf("Išvada: VIP sutartys nuostolingos.\n");
+    } else {
+        printf("Išvada: Pelno skirtumo nėra.\n");
+    }
+
+    Done(&withVip.base_salary);
+    Done(&withVip.overtime_salary);
+    Done(&withVip.bonus_income);
+    Done(&withVip.total_profit);
+
+    Done(&withoutVip.base_salary);
+    Done(&withoutVip.overtime_salary);
+    Done(&withoutVip.bonus_income);
+    Done(&withoutVip.total_profit);
 
     return 0;
 }

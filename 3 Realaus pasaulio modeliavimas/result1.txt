@@ -1,4 +1,5 @@
 KaskoSim - Simuliatorius automobiliu draudimo apskaiciavimui
+
 Inicijuojama reikšmė (seed): 50
 Procesas 1 (su VIP): 
 ----------------------------------------------
@@ -18,4 +19,4 @@ Išlaidos viršvalandžiams (x2): 0
 ----------------------------------------------
 Galutinis pelnas: 0
 
-Diff: -3550
+Išvada: VIP sutartys nuostolingos.

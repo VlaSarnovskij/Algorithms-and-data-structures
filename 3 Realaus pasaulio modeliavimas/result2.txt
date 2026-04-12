@@ -1,21 +1,22 @@
 KaskoSim - Simuliatorius automobiliu draudimo apskaiciavimui
-Inicijuojama reikšmė (seed): 1776011974
+
+Inicijuojama reikšmė (seed): 1776034810
 Procesas 1 (su VIP): 
 ----------------------------------------------
-Aptarnautų automobilių: 99 (iš jų VIP: 26, įprastų: 73)
-Pajamos iš premijų (A1): 3900
-Išlaidos pagrindiniam atlyginimui: 20640
-Išlaidos viršvalandžiams (x2): 7380
+Aptarnautų automobilių: 100 (iš jų VIP: 18, įprastų: 82)
+Pajamos iš premijų (A1): 2700
+Išlaidos pagrindiniam atlyginimui: 21150
+Išlaidos viršvalandžiams (x2): 4380
 ----------------------------------------------
-Galutinis pelnas: -3480
+Galutinis pelnas: -1680
 
 Procesas 2 (be VIP): 
 ----------------------------------------------
-Aptarnautų automobilių: 89 (iš jų VIP: 0, įprastų: 89)
+Aptarnautų automobilių: 88 (iš jų VIP: 0, įprastų: 88)
 Pajamos iš premijų (A1): 0
-Išlaidos pagrindiniam atlyginimui: 20790
+Išlaidos pagrindiniam atlyginimui: 21150
 Išlaidos viršvalandžiams (x2): 0
 ----------------------------------------------
 Galutinis pelnas: 0
 
-Diff: -3480
+Išvada: VIP sutartys nuostolingos.

@@ -14,15 +14,17 @@ typedef struct{
 } SimulationParams;
 
 typedef struct {
-    int vip_count;          // Kiek VIP aptarnauta
-    int regular_count;      // Kiek įprastų aptarnauta
-    long base_salary;       // Išlaidos pagrindiniam atlyginimui
-    long overtime_salary;   // Išlaidos viršvalandžiams
-    long bonus_income;      // Pajamos iš premijų (A1)
-    long total_profit;      // Galutinis pelnas
+    int vip_count;                 // Kiek VIP aptarnauta
+    int regular_count;             // Kiek įprastų aptarnauta
+    BigInteger* base_salary;       // Išlaidos pagrindiniam atlyginimui
+    BigInteger* overtime_salary;   // Išlaidos viršvalandžiams
+    BigInteger* bonus_income;      // Pajamos iš premijų (A1)
+    BigInteger* total_profit;      // Galutinis pelnas
 } SimulationResult;
 
 void readParamsFromFile(const char* filename, SimulationParams* params);
+
+void addIntToBI(BigInteger** dest, int value);
 
 int hasVipTask(priorityQueue *pq, int masters_busy[], int masters_work_type[], int K);
 
