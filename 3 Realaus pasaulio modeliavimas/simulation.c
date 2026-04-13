@@ -37,11 +37,11 @@ void addIntToBI(BigInteger** dest, int value) {
 }
 
 int hasVipTask(priorityQueue *pq, int masters_busy[], int masters_work_type[], int K) {
-    // Check if there's a VIP task in the queue
+    // Patikriname, ar eilėje yra VIP užduotis
     if (!pq_IsEmpty(pq) && pq_Peek(pq) == 1) {
         return 1;
     }
-    // Check if any master is currently working on a VIP task
+    // Patikriname, ar kuris nors meistras dirba su VIP užduotimi
     for (int i = 0; i < K; i++) {
         if (masters_busy[i] > 0 && masters_work_type[i] == 1) {
             return 1;

@@ -1,7 +1,0 @@
-30  days 
-300  A (Franchise) 
-100  A1 (Bonus) 
-25   U (Wage) 
-2    K (Workers) 
-20   T1 (VIP prob %) 
-50   T2 (Regular prob %) 
